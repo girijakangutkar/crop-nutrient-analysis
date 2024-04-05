@@ -100,7 +100,7 @@ def my_form(request):
       def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
  """ 
-"""
+
 class Index(View):
       def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
@@ -125,7 +125,7 @@ class Index(View):
         print(data)
         ser.close()
         return render(request, 'index.html', { 'read':data })
-
+"""
 class Contact(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'contact.html')
