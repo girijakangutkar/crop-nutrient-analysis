@@ -1,0 +1,194 @@
+.hscroll {
+  overflow-x: auto; /* Horizontal */
+} 
+
+#io{
+  background-color: transparent;
+  border: transparent;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+  margin-right: 2em;
+  margin-left: 2em;
+  background-color: white;
+
+  border: 0px; 
+  align-items: center;
+  margin-top: 70px;
+  
+}
+
+td, th {
+  border: 2px solid #121010;
+  text-align: left;
+  padding: 8px;
+  color: #153122;
+  text-align: center;
+}
+
+
+tr:nth-child(even) {
+  background-color:#b3ec94 ;
+
+}
+
+#io{
+  border: 0px; 
+  text-align: center;
+  background-color: transparent;
+  
+}
+
+
+h3 {
+    color: #082f1c;
+    text-align: left;
+    margin-left: 20px;
+   
+  }
+
+  .d-flex{
+    margin-top: 0.9em;
+  }
+
+  
+
+
+  #search{
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    font-weight: bold;
+ 
+  }
+
+  p{
+    color: #0e2b15;
+    
+
+  }
+
+  h5,h4{
+    font-weight: bold;
+    font-size: large;
+    color: #053805;
+    
+
+  }
+
+
+
+  #center {
+      width: auto;
+      display: inline;
+      overflow: auto;
+      white-space: nowrap;
+      margin: 0px auto;
+      margin-left: 10px;
+      background-color: #a1e57e; 
+      color:#04442c; 
+      border-radius: 25px; 
+      font-weight: bold;
+      border: black solid;
+      margin-top: 0.8em;
+    }
+
+
+  #card{
+    display: flex; 
+    padding: 2em;
+    color: #080808;
+    background-color: rgb(142, 229, 164);;
+    border-radius: 15px;
+    margin: 0.2em;
+    margin-left: 0.5em;
+   
+    /*margin-top: 1.5em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    padding-right: 0.3em;
+    padding-bottom:12px;
+    padding-top: 0.2em;
+    width: auto;
+    padding-left: 0.9em;
+    
+      #text{
+    color: #0f4a2e;
+    margin-top: 0.5em;
+    width: 450px;
+  } 
+    */
+
+  }        
+  #container{
+    font-weight: bold;
+    border-radius: 15px;
+    color: #141515;     
+    padding-bottom: 5em;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #DDD;
+    padding-bottom: 13em;
+    margin-bottom: 50em;
+  }
+
+
+  .navbar {
+    border-bottom: 1px solid #0b5020;
+  
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #03440d;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+    
+  }
+  
+  .nav-link::before {
+    transition: 300ms;
+    height: 6px;
+    content: "";
+    position: absolute;
+    background-color: #042809;
+    margin-top: 0.2em;
+  }
+  
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+  
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  
+  
+  .image-90 {
+    width: 15em;
+    height: 15em;      
+    margin: 10px;
+    margin-left: 8px;   
+    border: 2px rgb(12, 32, 10) solid;
+    background: #C4C4C4 no-repeat 0 0;
+    background-image: url('http://placekitten.com/g/200/300');
+    background-size: 60px;
+  }
+

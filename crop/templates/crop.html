@@ -1,0 +1,69 @@
+{% include './nav.html' %}
+{% block content %}
+{% load static %}
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+<body  style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crop names.." title="Type in a name" class="icon">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{% static '/js/filter.js' %}"></script>
+<link rel="stylesheet" href="{% static 'crop.css' %}">
+<h1 style="color: #2a7408; font-weight: bold;">Crop Data :</h1>
+
+<div class="hscroll">
+    <table id="myTable" style="margin-left: 20px;" >
+    
+        <tr>
+            <th>Crop name</th>
+            <th>Ph</th>
+            <th>Nitrogen</th>
+            <th>Phosphorus</th>
+            <th>Potassium</th>
+            <th>Image</th> 
+        </tr>
+        <tr>
+        {% for x in crop_info %}
+           <td>{{ x.name }}</td>
+           <td>{{ x.ph }}</td>
+           <td>{{ x.N }}</td>
+           <td>{{ x.P }}</td>
+           <td>{{ x.K }}</td>
+           <td><img src="{{ x.image.url }}" width="100" height="100" alt="Not found"></td>
+           
+        </tr>
+        {% endfor %}
+        </table>
+</div>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-primary btn-lg
+"><i class="fa fa-arrow-up" aria-hidden="true"></i> Top</button>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+</body>
+
+
+
+{% include './footer.html' %}
+{% endblock content %}

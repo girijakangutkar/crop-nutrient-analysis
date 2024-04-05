@@ -1,0 +1,96 @@
+{% include './nav.html' %}
+{% block content %}
+{% load static %}
+<body style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;">
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{% static '/js/filter.js' %}"></script>
+<link rel="stylesheet" href="{% static 'report.css' %}">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crop names.." title="Type in a name" class="icon" style="color: black;">
+<div class="hscroll">
+  <table id="myTable" style="margin-left: 20px;" >
+    
+    <tr>
+      <th>Farmer name</th>
+      <th>Soil Location</th>
+      <th>Contact detail</th>
+      <th>Date</th>
+      <th>Temperature</th>
+      <th>Humidity</th>
+      <th>Nitrogen</th>
+      <th>Phosphorus</th>
+      <th>Potassium</th>
+      <th>Predicted crop</th>
+      <th>Required Nitrogen</th>
+      <th>Required Phosphorus</th>
+      <th>Required Potassium</th>
+      <th>Expected crop</th>
+      <th>Required Nitrogen</th>
+      <th>Required Phosphorus</th>
+      <th>Required Potassium</th> 
+        
+       <!--
+ <th>Image</th>
+       -->
+    </tr>
+    <tr>
+    {% for x in prediction_info %}
+      <td>{{ x.Farmer_name }}</td>
+      <td>{{ x.location }}</td>
+      <td>{{ x.contact }}</td>
+      <td>{{ x.Date }}</td>
+      <td>{{ x.x2 }}</td>
+      <td>{{ x.x3 }}</td>
+      <td>{{ x.x4 }}</td>
+      <td>{{ x.x5 }}</td>
+      <td>{{ x.x6 }}</td>
+      <td>{{ x.PC }}</td>
+      <td>{{ x.PN }}</td>
+      <td>{{ x.PP }}</td>
+      <td>{{ x.PK }}</td>
+      <td>{{ x.x1 }}</td>
+      <td>{{ x.x9 }}</td>
+      <td>{{ x.x10 }}</td>
+      <td>{{ x.x11 }}</td>
+       <!--
+        <td><img src="{{ x.image.url }}" width="100" height="100" alt="Not found"></td>
+   
+       -->
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-primary btn-lg
+    "><i class="fa fa-arrow-up" aria-hidden="true"></i> Top</button>
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+            
+</body>
+
+
+
+{% include './footer.html' %}
+{% endblock content %}

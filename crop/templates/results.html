@@ -1,0 +1,145 @@
+{% load bootstrap3 %}
+
+{% block content %}
+
+{% include './nav.html' %}
+
+
+{% load static %}
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+<link rel="stylesheet" href="{% static 'results.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{% static '/js/results.js' %}"></script>
+<body  style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;">
+
+<div class="hscroll">
+<table id="myTable" style="margin-bottom: 20px;">
+  <form method="post" action="{% url 'analysis' %}">
+    {% csrf_token %}
+    <div id="card" style="width: 123em; margin-bottom: 20px;">
+      <div class="card-body bg-light">
+        <div class="row">
+          <div class="form-group">
+                
+            <label id="text" style="font-size: larger; width: 145px; font-weight: bolder; padding-left: 20px;" for="cropp">Predicted crop:</label>
+            <!--
+              <input id="input" type="text"  name="CN" id="CN" value="{{ result }}" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+                          
+            -->
+
+            {% if N >= 60 and P >= 20 and K >= 20 and 100 >= N and 50 >= P and 50 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Rice" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 30 and P >= 10 and K >= 5 and 80 >= N and 40 >= P and 40 >= K %}
+            <input id="input" type="text" name="CN" id="CN" value="Nachani" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 5 and P >= 30 and K >= 30 and 25 >= N and 50 >= P and 60 >= K %}
+            <input id="input" type="text" name="CN" id="CN" value="Kulith" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 5 and P >= 30 and K >= 5 and 25 >= N and 60 >= P and 40 >= K %}
+            <input id="input" type="text" name="CN" id="CN" value="Chavali" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 5 and P >= 30 and K > 00 and 25 >= N and 50 >= P %}
+            <input id="input" type="text"  name="CN" id="CN" value="Kadave" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 30 and P >= 30 and K >= 5 and 50 >= N and 50 >= P and 30 >= K %}
+            <input id="input" type="text"  name="CN" id="CN" value="Bhuimug" readonly>
+
+
+            {% elif N >= 40 and P >= 10 and K >= 2 and 50 >= N and 20 >= P and 20 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Rice" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 40 and P >= 40 and K >= 40 and 80 >= N and 60 >= P and 60 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Nachani" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 20 and P >= 20 and K >= 40 and 50 >= N and 50 >= P and 60 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Kulith" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 20 and P >= 20 and K >= 40 and 50 >= N and 50 >= P and 60 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Chavali" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 20 and P >= 20 and K >= 40 and 50 >= N and 50 >= P and 60 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Kadave" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% elif N >= 15 and P >= 40 and K >= 50 and 30 >= N and 60 >= P and 150 >= K  %}
+            <input id="input" type="text"  name="CN" id="CN" value="Bhuimug" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+            {% else %}
+            <input id="input" type="text"  name="CN" id="CN" value="{{ crp }}" style="font-size: large; font-weight: 200; background-color: transparent; border: transparent;" readonly>
+           
+           {% endif %}                
+        </div>
+          <div class="col-md-4">
+            <label id="text" style="font-size: larger; width: 2130px; font-weight: bolder;" for="cropp">Expected crop</label>
+            <select style="width: 270px; size: 250px; background-color:#d0f4e3;" name="g1" id="g1" id="label" class="form-control" required>
+                  <option value="none" selected disabled hidden>Select</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Bhuimug">Bhuimug</option>
+                  <option value="Chavali">Chavali</option>
+                  <option value="Kadave">Kadave</option>
+                  <option value="Nachani">Nachani</option>
+                  <option value="Kulith">Kulith</option>
+            </select>
+          </div>
+        </div>
+
+        
+    <tr> 
+      <!--
+       <th colspan="1">Image</th>
+      -->
+ 
+        <th colspan="1">Crop Name</th>
+        <th colspan="5">Experimented values</th> 
+        <th colspan="3">Needded values</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Temperature</td>  
+        <td>Humidity</td> 
+        <td>Nitrogen</td> 
+        <td>Phosphorus</td> 
+        <td>Potassium</td> 
+        <td>Nedded Nitrogen</td> 
+        <td>Nedded Phosphorus</td> 
+        <td>Nedded Potassium</td>
+    </tr>
+    {% load mathfilters %}
+    {% for x in crop_data %}
+    <tr>
+      <!--
+ <td><img class="image-90" src="{{ x.image.url }}"></td>
+      
+      -->
+     <td><input id="io" id="g7" name="g7" value="{{ x.name }}" readonly/></td>
+      <td><input id="io" id="g2" name="g2" value="{{ T }}" readonly></td>  
+      <td><input id="io" id="g3" name="g3" value="{{ H }}" readonly></td> 
+      <td><input id="io" id="g4" name="g4" value="{{ N }}" readonly></td> 
+      <td><input id="io" id="g5" name="g5" value="{{ P }}" readonly></td> 
+      <td><input id="io" id="g6" name="g6" value="{{ K }}" readonly></td> 
+      <td><input id="io" id="g10" name="g10" value="{{ x.N|sub:N }}" readonly></td> 
+      <td><input id="io" id="g11" name="g11" value="{{ x.P|sub:P }}" readonly></td> 
+      <td><input id="io" id="g12" name="g12" value="{{ x.K|sub:K }}" readonly></td>
+  </tr>
+  {% endfor %}
+  <div class="col-md-12 text-center" style="padding-bottom: 20px; margin-bottom: 30px;" >
+    <!--
+    <button onclick="window.print()" id="center" type="submit" class="btn btn-primary btn-lg" name="print" style='float: left;' id="center"><i class='fa fa-print'></i> Print</button>
+    -->
+ <button type="submit" class="btn btn-primary btn-lg" style='float: left;' id="center" ><i class='fa fa-file-text-o'></i> Generate Report</button>
+ 
+   
+     </div>
+  
+</form>
+
+</table>
+
+</div>
+      <!--
+      <div style="color:rgb(2, 28, 8);">
+        <h4>Crop Prediction :</h4>       
+        {% for data in crop_data %}
+          {% if ph == data.ph and P == data.P and N == data.N and K == data.K %}  
+            <h4 style="font-weight:bolder; color:#041f08;">Recommended crop :   {{ data.name }}</h4>        
+            <img class="image-90" src="{{ data.image.url }}">
+          {% endif %}
+        {% endfor %}            
+
+     </div> 
+    -->
+
+</body>
+{% include './footer.html' %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+
+.navbar {
+    border-bottom: 1px solid #0b5020;
+  
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #03440d;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+    
+  }
+  
+  .nav-link::before {
+    transition: 300ms;
+    height: 6px;
+    content: "";
+    position: absolute;
+    background-color: #042809;
+    margin-top: 0.2em;
+  }
+  
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+  
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  

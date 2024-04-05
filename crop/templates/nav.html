@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Crop Yield Recommender</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-inverse" style="background:#cee2d2;">
+  <div class="container-fluid">
+    <div class="navbar-header" style="color:#083523;">
+      <button title="bar" style="color:#072d1e;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" style="color:#063f17; font-weight: bold;" href="/">Crop Yield Recommendation</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style="color:#3b6554;">
+      <ul class="nav navbar-nav" id="nav-link">
+        <li class="nav-item">
+          <a style="color:#063514;" class="nav-link nav-link-ltr" href="{% url 'contact' %}">About us</a>
+        </li>
+        
+        <li class="nav-item">
+          <a style="color:#063514;" class="nav-link nav-link-ltr" href="{% url 'report' %}">Reports</a>
+        </li>          
+        
+
+        <li class="nav-item">
+          <a style="color:#063514;" class="nav-link nav-link-ltr" href="{% url 'Data' %}">Range table</a>
+        </li>
+        <!--
+        <li class="nav-item">
+          <a style="color:#052d0b" class="nav-link nav-link-ltr" href="{% url 'cropData' %}">Crop data</a> href="{% url 'cropData' %}"-->
+        </li>
+
+        <li class="nav-item">
+          <a style="color:#063514;" class="nav-link nav-link-ltr" href="http://127.0.0.1:8000/admin">Admin</a>
+        </li>
+       <li id='google_translate_element'></li>
+</div>
+  <script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+ </script>
+ <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+      </ul>
+    </div>
+  </div>
+  </nav>
+ 
+
+
+<style type="text/css">
+ 
+   .fixed-con {
+    z-index: 9724790009779558!important;
+    background-color: #f7f8fc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
+  .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+   z-index: 9724790009779!important;
+   top:0;
+   left:unset;
+   right:-5px;
+   display:none!important;
+   border-radius:50%;
+   border:2px solid gold;
+  }
+  .VIpgJd-ZVi9od-aZ2wEe-OiiCO{
+    width:80px;
+    height:80px;
+  }
+  /*hide google translate link | logo | banner-frame */
+  .goog-logo-link,.gskiptranslate,.goog-te-gadget span,.goog-te-banner-frame,#goog-gt-tt, .goog-te-balloon-frame,div#goog-gt-{
+    display: none!important;
+  }
+  .goog-te-gadget {
+    color: transparent!important;
+    font-size:0px;
+  }
+
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+   
+ /*google translate Dropdown */
+ 
+ #google_translate_element select{
+ background:#f6edfd;
+ color:#383ffa;
+ border: none;
+ border-radius:3px;
+ padding:6px 8px
+ }
+   </style>

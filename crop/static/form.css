@@ -1,0 +1,200 @@
+
+
+.hscroll {
+
+  overflow-x: auto; 
+ }
+  
+
+h3 {
+    color: #082f1c;
+    text-align: left;
+    margin-left: 20px;
+   
+  }
+
+  .d-flex{
+    margin-top: 0.9em;
+  }
+
+  #search{
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    font-weight: bold;
+ 
+  }
+
+  p{
+    color: #0e2b15;
+    
+
+  }
+
+  h5,h4{
+    font-weight: bold;
+    font-size: large;
+    color: #053805;
+    
+
+  }
+
+
+
+  #center {
+      width: auto;
+      display: inline;
+      overflow: auto;
+      white-space: nowrap;
+      margin: 0px auto;
+      margin-left: 10px;
+      background-color: #a1e57e; 
+      color:#04442c; 
+      border-radius: 25px; 
+      font-weight: bold;
+      border: black solid;
+      margin-top: 0.8em;
+    }
+
+
+       
+  #container{
+    font-weight: bold;
+    border-radius: 15px;
+    color: #141515;    
+    padding-bottom: 0.5em;
+   
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #DDD;
+  }
+
+
+  .navbar {
+    border-bottom: 1px solid #0b5020;
+  
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #03440d;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+    
+  }
+  
+  .nav-link::before {
+    transition: 300ms;
+    height: 6px;
+    content: "";
+    position: absolute;
+    background-color: #042809;
+    margin-top: 0.2em;
+  }
+  
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+  
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  
+  #card{
+    background-color: rgb(142, 229, 164);
+    height: auto;
+    width: auto;
+
+    border-radius: 10px;
+    padding: 2em;
+    text-align:left;
+    margin: 3em;
+    padding-bottom: 3em
+    
+    /*
+    display: flex; 
+    margin:0.5em;
+    color: #080808;
+    background-color: rgb(142, 229, 164);;
+    border-radius: 15px;
+    padding:1.5em;
+    width: 600px;
+    padding-left: 224px;
+    
+    400px width
+    style="padding-bottom: 15em; padding: 40px; margin-left:5em; margin-right: 5em; margin-bottom: 23em;"
+    */
+  }
+  
+  .image-90 {
+    width: 15em;
+    height: 15em;      
+    margin: 10px;
+    margin-left: 8px;   
+    border: 2px rgb(12, 32, 10) solid;
+    background: #C4C4C4 no-repeat 0 0;
+    background-image: url('http://placekitten.com/g/200/300');
+    background-size: 60px;
+  }
+
+
+/*
+#form {
+  background-color: rgb(142, 229, 164);
+  height: 123px;
+  width: 410em;
+  margin-top: 0px;
+  border-radius: 10px;
+  
+  text-align:left;
+
+  padding: 3em;
+}
+*/
+
+
+label {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 10em;
+  color: #333;
+  height: 20px;
+  width: 320px;
+  margin-left: 10px;
+  text-align: left;
+  margin-right:15px;
+  float:left;
+
+}
+
+input{
+  width:410px;
+}
+
+
+.form-control{
+  width: 410px;
+
+}
+/*
+
+410px
+
+
+#id_location{
+  width:420px;
+}
+*/

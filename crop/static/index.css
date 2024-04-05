@@ -1,0 +1,148 @@
+.body{
+  cursor: url("images/scarecrow.png");
+}
+
+h1 {
+    color: #054827;
+    text-align: left;
+    margin-bottom: 1em;
+  }
+  
+  #tree{
+    color :#a1e57e;
+    size: 80px;
+  }
+  
+  #nav-link{
+    color:#26563f;
+  }
+  
+  #label{
+    background-color: #d2e0d9;
+    color:#0f291d;
+    border-bottom: 2px solid #195f7b;
+    border :#073d2e solid 1px;
+    width: 20em;
+  }
+  
+  #text{
+    color: #0f4a2e;
+    font-size: 1.3em;
+    margin-top: 0.5em;
+  }
+  
+  #center {
+    width: auto;
+    display: inline;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0px auto;
+  
+    background-color: #a1e57e; 
+    color:#04442c; 
+    border-radius: 25px; 
+    font-weight: bold;
+    border: black solid;
+    margin-top: 2em;
+  }
+  
+  .card{
+    /*margin-left:410px;*/
+    margin-left:41px;
+    margin-top: 20px;
+    color: white;
+  }
+  .container{
+    font-weight: bold;
+    padding-bottom:10px;
+    border-radius: 15px;
+  }
+/*
+  #card{
+    margin-top: 0.6em;
+    margin-left: 4em;
+    margin-right: 10%;
+    padding-right: 5em;
+    padding-bottom:4em;
+    margin-bottom: 40px;
+    padding-top: 0.2em;
+    padding-left: 2em;
+    color: #080808;
+    background-color: rgb(140, 222, 160);;
+    width: auto;
+    border-radius: 15px;
+
+  } 
+  */
+  #card{
+    margin-top: 1.5em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+    padding-right: 0.3em;
+    padding-bottom:2em;
+    margin-bottom: 20px;
+    padding-top: 0.2em;
+    padding-left: 4em;
+    color: #080808;
+    background-color: rgb(140, 222, 160);;
+    width: auto;
+    border-radius: 15px;
+
+  } 
+
+
+  #btn{
+    margin-right: 40em;
+    margin-top: 1em;
+    padding: 0.5em;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #DDD;
+  }
+
+
+  .navbar {
+    border-bottom: 1px solid #0b5020;
+  
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #03440d;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+    
+  }
+  
+  .nav-link::before {
+    transition: 300ms;
+    height: 6px;
+    content: "";
+    position: absolute;
+    background-color: #042809;
+    margin-top: 0.2em;
+  }
+  
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+  
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  

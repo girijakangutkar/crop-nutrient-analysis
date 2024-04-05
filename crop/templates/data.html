@@ -1,0 +1,90 @@
+{% include './nav.html' %}
+{% block content %}
+{% load bootstrap3 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'data.css' %}">
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body  style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;">
+<div id="card" class="container my-5 mt-5 bg-light">
+    <h3>Temperature table :</h3>
+    <div class="hscroll">
+        <table style="margin: 2em;" style="margin-left: 20px;" >
+            <tr>
+                <th>Crops</th>
+                <th>Minimum</th>
+                <th>Optimum</th>
+                <th>Maximum</th>
+            </tr>
+            <tr>
+                <td>Wheat</td>
+                <td>3 - 5 °C</td>
+                <td>25 °C</td>
+                <td>30 - 32 °C</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td>10 - 12 °C</td>
+                <td>30 - 32 °C</td>
+                <td>36 - 38 °C</td>
+            </tr>
+        </table>
+        <h3>Nitrogen, Phosphorus and Potassium table :</h3>
+        <table style="margin: 2em;">
+            <tr>
+                <th>Nutrient</th>
+                <th>Low</th>
+                <th>Medium</th>
+                <th>High</th>
+            </tr>
+            <tr>
+                <td>Nitrogen</td>
+                <td>Less than 240 kg/ha</td>
+                <td>240 - 480 kg/hg</td>
+                <td>Greater than 480 kg/ha</td>
+            </tr>
+            <tr>
+                <td>Phosphorus</td>
+                <td>Less than 11.0 Kg/ha</td>
+                <td>11 - 22 Kg/ha</td>
+                <td>Greater than  22 Kg/ha</td>
+            </tr>
+            <tr>
+                <td>potassium</td>
+                <td>Less than 110 Kg/ha</td>
+                <td>110 - 280Kg/ha</td>
+                <td>Greater than  280 Kg/ha</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-primary btn-lg
+"><i class="fa fa-arrow-up" aria-hidden="true"></i> Top</button>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+{% include './footer.html' %}
+
+{% endblock %}

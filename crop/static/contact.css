@@ -1,0 +1,97 @@
+    h1 {
+      color: rgb(14, 70, 39);
+      text-align: left;
+    }
+
+    .card{
+      margin-left:410px;
+      margin-top: 20px;
+      color: white;
+    }
+    .container{
+      font-weight: bold;
+      padding-bottom:10px;
+      border-radius: 15px;
+   
+    }
+    #card{
+      margin-top: 1.5em;
+      margin-left: 0.7em;
+      margin-right: 0.7em;
+      padding-right: 0.3em;
+      padding-bottom:2em;
+      margin-bottom: 20px;
+      padding-top: 0.2em;
+      padding-left: 0.9em;
+      color: #080808;
+      background-color: rgb(235, 247, 238);;
+      width: auto;
+      border-radius: 15px;
+ 
+    } 
+
+    body {
+      padding: 0;
+      margin: 0;
+      
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #DDD;
+    }
+
+
+    
+.navbar {
+  border-bottom: 1px solid #0b5020;
+
+}
+
+.nav-link {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #03440d;
+  padding: 20px 0px;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 0.75;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 6px;
+  content: "";
+  position: absolute;
+  background-color: #042809;
+  margin-top: 0.2em;
+}
+
+.nav-link-ltr::before {
+  width: 0%;
+  bottom: 10px;
+}
+
+.nav-link-ltr:hover::before {
+  width: 100%;
+}
+
+
+#social #container {
+  text-align: center;
+}
+
+#social #container ul {
+  float: left;
+}
+
+#social #container ul li {
+  float: left;
+  padding-left: 10px;
+  list-style-type: none;
+}

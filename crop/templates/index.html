@@ -1,0 +1,100 @@
+{% include './nav.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Crop Recommender</title>
+
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+  
+<style>
+    body{
+  cursor: url("https://www.flaticon.com/free-icon/sickle_6619651?term=sickle&page=1&position=87&origin=tag&related_id=6619651");
+}
+</style>  
+<body class="body" style="background-image: url(static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover; "></body>
+<div id="card" class="container my-5 mt-5 bg-light">
+    <h1>Crop Yield Recommendation <img id="plant" style="height:8%;width:8%;" src="{% static 'plant.png' %}" alt="404"></h1>   
+    <form method="post" id="form"  action="{% url 'results' %}" >
+        {% csrf_token %}
+        <!--
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text" for="cropp">Expected crop</label>
+                <select style="size: 20px; background-color: #26563f; color:#d0f4e3;" name="crop" id="crop" id="label" class="form-control" required>
+                    <option value="none" selected disabled hidden>Select</option>
+                    <option value="rice">rice</option>
+                    <option value="bhuimug">bhuimug</option>
+                    <option value="chavali">chavali</option>
+                    <option value="kadave">kadave</option>
+                    <option value="nachani">nachani</option>
+                    <option value="kulith">kulith</option>
+                </select>
+            </div>
+        </div>
+
+        -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text" for="T">Temperature</label>
+                <input  id="label" type="number" id="T" name="T" placeholder="Enter Temperature" class="form-control" value="{{ read }}" required>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text" for="H">Humidity</label>
+                <input id="label" type="number" id="H" name="H" placeholder="Enter Humidity" class="form-control" value="{{ read }}" required>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text"  for="N">Nitrogen</label>
+                <input id="label" type="number" placeholder="Enter nitrogen 0-140"  id="N" name="N" value="{{ read.3 }}" class="form-control" required>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text" for="P">Phosphorus</label>
+                <input id="label" type="number" id="P" placeholder="Enter phosphorous 5-145" name="P" value="{{ read.4 }}" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label id="text" for="K">Potassium</label>
+                <input id="label" type="number" id="K" placeholder="Enter potassium 5-205"  name="K" value="{{ read.5 }}" class="form-control" required>
+            </div>
+        </div>
+        <div class="row mt-4">
+      
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg" style='float: left;' id="center" ><i class="fa fa-chevron-right" aria-hidden="true"></i> Process</button>
+              </div>
+        </div>
+      </form>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.js" 
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+        crossorigin="anonymous"></script> 
+
+
+</div>
+</body>
+{% include './footer.html' %}
+</html>
+
+<!--
+    style="background-image: url(static/re); height: 100vh; background-position: center; background-size: cover;"
+-->

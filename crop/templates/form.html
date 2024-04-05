@@ -1,0 +1,310 @@
+{% load bootstrap3 %}
+
+{% block content %}
+{% include './nav.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+<body  style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;">
+
+<div id="card" class="container my-5 mt-5 bg-light">
+<div class="hscroll" style="padding-bottom:30px;">
+    <form method="POST" style="margin-bottom:20px;" id="myForm" action="{% url 'retrive' %}" >
+        {% csrf_token %}
+    
+             <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Farmer Name:</label>
+                    <br>
+                    {% load widget_tweaks %}
+                        <div class="form-group">
+                                {% render_field form.Farmer_name|attr:"readonly:True" class="form-control" placeholder="Farmer_name" type="text" %}
+                        </div>         
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Soil location</label>
+                    <br>
+                    {% load widget_tweaks %}
+                        <div class="form-group">
+                                {% render_field form.location|attr:"readonly:True" class="form-control" placeholder="location" type="text" %}
+                        </div>         
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Contact:</label>
+                    <br>
+                    {% load widget_tweaks %}
+                        <div class="form-group">
+                                {% render_field form.contact|attr:"readonly:True" class="form-control" placeholder="Farmer_name" type="text" %}
+                        </div>         
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Date</label>
+                    <br>
+                    {% load widget_tweaks %}
+                    {% render_field form.Date id="current_date" class="form-control" placeholder="Date" type="date" %}
+                
+                    <script>
+                        document.getElementById("current_date").innerHTML = Date();
+                    </script>
+                </div>
+            </div>
+            <br>
+        <!--  
+            {{ form.as_p }}      
+            <div class="row">
+                <div class="col-md-4">
+                    <label id="text" for="name">Date</label>
+                    <br>
+                    <input type="date" id="current_date" required>
+                    <p id="current_date"></p>
+                     {{ form.date }}
+                    <script>
+                        document.getElementById("current_date").innerHTML = Date();
+                    </script>
+                </div>
+            </div>
+        -->    
+            <div class="row">
+                <div class="col-md-4" readonly>
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Expected crop:</label>
+                    <br>
+                    <div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x1|attr:"readonly:True" class="form-control" placeholder="Expected crop" type="text" %}
+                    </div>
+                </div>
+            </div>  
+            <br>
+
+            <div class="row">
+                <div class="col-md-4" readonly>
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Predicted crop:</label>
+                    <br>
+                    <div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.PC|attr:"readonly:True" class="form-control" placeholder="Expected crop" type="text" %}
+                    </div>
+                </div>
+            </div> 
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Temperature:</label>
+                    <br>
+                    <div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x2|attr:"readonly:True" class="form-control" placeholder="Temperature" type="text" %}
+                </div>
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Humidity:</label>
+                    <br>
+                    <div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x3|attr:"readonly:True" class="form-control" placeholder="Humidity" type="text" %}
+                </div>
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Nitrogen:</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x4|attr:"readonly:True" class="form-control" placeholder="Nitrogen" type="text" %}
+                </div>
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Phosphorus:</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x5|attr:"readonly:True" class="form-control" placeholder="Phosphorus" type="text" %}
+                </div>
+                </div>
+            </div>  
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger; width: 2130px; font-weight: bolder;">Potassium:</label>
+                    <br>
+                    <div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x6|attr:"readonly:True" class="form-control" placeholder="potassium" type="text" %}
+                
+                       </div>
+                </div>
+            </div>
+            <br>
+    
+            {% load mathfilters %}
+            {% for x in crop_data %}
+            {% if x.name == x1 %}
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 2130px; font-weight: bolder;">Needed amount of nitrogen for {{ x1 }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x9|attr:"readonly:True" class="form-control" placeholder="Needed amount of nitrogen" type="text" %}
+                </div>
+                </div>
+            </div>  
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 4430px; font-weight: bolder;">Needed amount of phosphorous for {{ x1 }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x10|attr:"readonly:True" class="form-control" placeholder="Needed amount of phosphorous" type="text" %}
+                </div>
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 4430px; font-weight: bolder;">Needed amount of potassium for {{ x1 }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.x11|attr:"readonly:True" class="form-control" placeholder="Needed amount of potassium" type="text" %}
+                </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+            
+            {% load mathfilters %}
+            {% for x in crop_data %}
+            {% if x.name == PC %}
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 2130px; font-weight: bolder;">Needed amount of nitrogen for {{ PC }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.PN|attr:"readonly:True" class="form-control" placeholder="Needed amount of nitrogen" type="text" %}
+                </div>
+                </div>
+            </div>  
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 4430px; font-weight: bolder;">Needed amount of phosphorous for {{ PC }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.PP|attr:"readonly:True" class="form-control" placeholder="Needed amount of phosphorous" type="text" %}
+                </div>
+                </div>
+            </div>
+            <br>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <label style="font-size: larger;height:60px; width: 4430px; font-weight: bolder;">Needed amount of potassium for {{ PC }}</label>
+                    <br><div class="form-group">
+                        {% load widget_tweaks %}
+                        {% render_field form.PK|attr:"readonly:True" class="form-control" placeholder="Needed amount of potassium" type="text" %}
+                </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+    
+    <!--
+            <div class="row">
+                <div class="col-md-4">
+                    <label id="text" for="name">test</label>
+                    <br>
+                    {% load mathfilters %}
+                    {% for form in crop_data %}
+                    {% if form.name == x1 %}
+                        <p>Temperature :{{ form.T|sub:x2 }}</p>
+                        <p>Hmidity: {{ form.H|sub:x3 }}</p>
+                        <p>Nitrogen: {{ form.N|sub:x4 }}</p>
+                        <p>Phosphorus: {{ form.P|sub:x5 }}</p>
+                        <p>potassium: {{ form.K|sub:x6 }}</p>        
+                    {% endif %}
+                    {% endfor %}
+                    <br>
+                </div>
+            </div>
+    
+    -->
+    
+    
+    
+          
+            <div class="col-md-12 text-center"> 
+                <button  type="submit" class="btn btn-primary btn-lg" style='float: left;' id="center"><i class='fa fa-save'></i> Save</button>
+                <a href="{% url 'report' %}" class="btn btn-primary btn-lg" style='float: left;' id="center"><i class='fa fa-file-text-o'></i> Show report</a>
+                <button  type="reset" class="btn btn-primary btn-lg" style='float: left;' id="center"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</button>
+            </div>
+           
+    </form> 
+</div>
+</div>
+
+       
+</body>
+{% include './footer.html' %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+                    {% for form in prediction_info %}
+                    {% if form.x1 == x1 %}
+                    <p>prediction_info</p>
+                    <p>{{ form.x7 }}</p>
+                    <p>{{ form.x8 }}</p>
+                    <p>{{ form.x9 }}</p>
+                    <p>{{ form.x10 }}</p>
+                    <p>{{ form.x11 }}</p>
+                    {% endif %}
+                    {% endfor %}
+-->

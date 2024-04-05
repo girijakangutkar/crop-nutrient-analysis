@@ -1,0 +1,309 @@
+{% load bootstrap3 %}
+
+{% block content %}
+{% include './nav.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'confirm.css' %}">
+<script src="{% static '/js/confirm.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel="icon" type="x-icon" href="{% static './images/LOGO.png' %}" />
+<body  style="background-image: url(/static/farm.jpg);  background-repeat: no-repeat;
+background-attachment: fixed; height: 100vh; background-position: center; background-size: cover;"></body>
+<div id="card" class="container my-5 mt-5 bg-light">
+    <div id="form">
+        <form method="POST" id="myForm" action="{% url 'retrive' %}" >
+            {% csrf_token %}
+                <div class="hscroll" style="overflow-x:auto;">
+                <div class="git">
+                    <img src="/static/images/GIT.PNG" alt="not found">
+                </div>
+               
+                </div>
+                <hr>
+                <h2>Farmer details:</h2>
+                <br>
+                <div class="form-group">
+                    <label for="x">Farmer Name:</label>  
+                    <input id="io" type="text" name="Farmer_name" id="Farmer_name" required> 
+                </div>
+                <div class="form-group">
+                    <label for="Add">Soil Location:</label>  
+                    <input id="io" type="text" name="location" id="location" required> 
+                </div>
+                <div class="form-group">
+                    <label for="x">Contact details:</label>  
+                    <input id="io" type="tel" name="contact" id="contact" required> 
+                </div>
+                <hr style="color: rgb(1, 30, 12);">
+                <h2>Analytical data:</h2>
+                <br>
+                <div class="form-group">
+                    <label for="Add">Temperature:</label>  
+                    <input id="input" type="text" name="x2" id="x2" value="{{ g2 }} °C" readonly> 
+                </div>
+                <div class="form-group">
+                    <label for="x">Humidity:</label>  
+                    <input id="input" type="text" name="x3" id="x3" value="{{ g3 }} %" readonly> 
+                </div>
+                <div class="form-group">
+                    <label for="x">Nitrogen:</label>  
+                    <input id="input" type="text" name="x4" id="x4" value="{{ g4 }} mg/kg" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="x">Phosphorus:</label>  
+                    <input id="input" type="text" name="x5" id="x5" value="{{ g5 }} mg/kg" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="x">Potassium:</label>  
+                    <input id="input" type="text"  name="x6" id="x6" value="{{ g6 }} mg/kg" readonly></td> 
+                </div>
+                <hr>
+                {% for x in crop_data %}
+                {% if x.name == g1 %}
+                <div class="form-group">
+                  <label for="name">Ph :</label>
+                  <input id="input" type="text" name="X9" id="X9" value="{{ x.ph }}" style="font-weight: bold; font-size: medium;" readonly>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="form-group">
+                    <label for="name">Predicted crop :</label>
+                    <input id="input" type="text" name="PC" id="PC" value="{{ CN }}" style="font-weight: bold; font-size: medium;" readonly> 
+                </div>
+                {% for x in crop_data %}
+                {% if x.name == CN %}
+                <h4 style="padding-left: 10px;">Image:</h4>   
+                <div class="form-group">
+                    <img class="image-90" src="{{ x.image.url }}">
+                </div>
+                {% endif %}
+                {% endfor %}
+
+                <div class="hscroll" style="overflow-x:auto;">
+                    <h4 style="padding-left: 10px;">Requirements:</h4> 
+                    <table id="mytable" style="border: 1px black; margin-bottom: 30px;"> 
+                        <tr>
+                            <th>Crop name</th> 
+                            <th>Required Nitrogen</th> 
+                            <th>Required Phosphorus</th>
+                            <th>Required Potassium</th>
+                        </tr>
+                        {% load mathfilters %}
+                        {% for x in crop_data %}
+                        {% if x.name == CN %}
+                        <tr>
+                          <td><input id="input" type="text" value="{{ x.name }}" readonly></td>
+                          <td><input id="input" type="text" name="PN" id="PN" value="{{ x.N|sub:g4 }} mg/kg" readonly></td>
+                          <td><input id="input" type="text" name="PP" id="PP" value="{{ x.P|sub:g5 }} mg/kg" readonly></td>
+                          <td><input id="input" type="text" name="PK" id="PK" value="{{ x.K|sub:g6 }} mg/kg" readonly></td>
+                      
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </table>  
+                    </div> 
+                <hr>
+            <div class="form-group">
+                <label for="name">Expected Prediction :</label>
+                <input id="input" type="text" name="x1" id="x1" value="{{ g1 }}" style="font-weight: bold; font-size: medium;" readonly> 
+            </div>
+            {% for x in crop_data %}
+            {% if x.name == g1 %}
+            <h4 style="padding-left: 10px;">Image:</h4>   
+            <div class="form-group">
+                <img class="image-90" src="{{ x.image.url }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+            <div class="hscroll" style="overflow-x:auto;">
+            <h4 style="padding-left: 10px;">Requirements:</h4> 
+            <table id="mytable" style="border: 1px black; margin-bottom: 30px;"> 
+                <tr>
+                    <th>Crop name</th> 
+                    <th>Required Nitrogen</th> 
+                    <th>Required Phosphorus</th>
+                    <th>Required Potassium</th>
+                </tr>
+                {% load mathfilters %}
+                {% for x in crop_data %}
+                {% if x.name == g1 %}
+                <tr>
+                  <td><input id="input" type="text" value="{{ x.name }}" readonly></td>
+                  <td><input id="input" type="text" name="x9" id="x9" value="{{ x.N|sub:g4 }} mg/kg" readonly></td>
+                  <td><input id="input" type="text" name="x10" id="x10" value="{{ x.P|sub:g5 }} mg/kg" readonly></td>
+                  <td><input id="input" type="text" name="x11" id="x11" value="{{ x.K|sub:g6 }} mg/kg" readonly></td>
+              
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>  
+            </div>       
+            
+            {% load mathfilters %}
+            <hr style="color: black;">
+            <h4>Suggestions:</h4>
+            <div style="overflow-x:auto;">
+                <table style="margin-bottom: 30px;"> 
+                    <tr>
+                        <th>Crop name</th> 
+                        <th>Required Nitrogen</th> 
+                        <th>Required Phosphorus</th>
+                        <th>Required Potassium</th>
+                    </tr>
+                    {% for x in crop_data %}
+                    {% if x.name != g1 %}
+                    {% if x.name != CN %}
+                    <tr>
+                      <td><input id="input" type="text" value="{{ x.name }}" readonly></td>
+                      <td><input id="input" type="text" value="{{ x.N|sub:g4 }} mg/kg" readonly></td>
+                      <td><input id="input" type="text" value="{{ x.P|sub:g5 }} mg/kg" readonly></td>
+                      <td><input id="input" type="text" value="{{ x.K|sub:g6 }} mg/kg" readonly></td>
+                  
+                    </tr>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+
+            <hr style="color: black;">
+            <div class="row">
+                <div class="col-md-4">
+                  <label id="text" for="cropp">Analysis done by:</label>
+                  <select style="width: 220px; size: 250px; background-color:#d0f4e3;" id="label" class="form-control" required>
+                        <option value="none" selected disabled hidden>Select</option>
+                        <option value="bhuimug">Girija Kangutkar</option>
+                        <option value="chavali">Gauri Kangutkar</option>
+                        <option value="kadave">Omkar more</option>
+                        <option value="nachani">Tejas padate</option>
+                  </select>
+                </div>
+              </div>
+              <hr style="color: black;">
+
+              <div class="col-md-4">
+                <label id="text" for="cropp">Signature:</label>
+              </div>
+              <br>
+              <hr>
+
+    <!--
+                <div class="row">
+                    <div class="col-md-4">
+                        <label id="text" for="name">test</label>
+                        <br>
+                        {% load mathfilters %}
+                        {% for form in crop_data %}
+                        {% if form.name == x1 %}
+                            <p>Temperature :{{ form.T|sub:x2 }}</p>
+                            <p>Hmidity: {{ form.H|sub:x3 }}</p>
+                            <p>Nitrogen: {{ form.N|sub:x4 }}</p>
+                            <p>Phosphorus: {{ form.P|sub:x5 }}</p>
+                            <p>potassium: {{ form.K|sub:x6 }}</p>        
+                        {% endif %}
+                        {% endfor %}
+                        <br>
+                    </div>
+                </div>
+    
+    -->
+    
+    
+    
+              
+                <div class="col-md-12 text-center"> 
+                    <!--
+                        <button  type="reset" class="btn btn-primary btn-lg" style='float: left;' id="center"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</button>
+                    -->
+                    <button type="submit" class="btn btn-primary btn-lg" style='float: left;' id="center" class="noprint" ><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Confirm</button>
+                </div>
+               <!--"this.style.display='none';    
+            id="options" -->
+        </form>
+        <div class="col-md-12 text-center"> 
+            <!--
+                <button  type="reset" class="btn btn-primary btn-lg" style='float: left;' id="center"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</button>
+            -->
+            <button onclick="window.print();" class="btn btn-primary btn-lg" name="print" style='float: left;' id="center" class="noprint"><i class='fa fa-print'></i> Print</button>
+        </div>
+    </div>
+
+           
+
+    
+           
+</div>
+
+
+</body>
+{% endblock %}
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+<script>
+        function printpage() {
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById("printpagebutton");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        printButton.style.visibility = 'visible';
+    }
+</script>
+
+
+
+
+
+
+<!--
+                    {% for form in prediction_info %}
+                    {% if form.x1 == x1 %}
+                    <p>prediction_info</p>
+                    <p>{{ form.x7 }}</p>
+                    <p>{{ form.x8 }}</p>
+                    <p>{{ form.x9 }}</p>
+                    <p>{{ form.x10 }}</p>
+                    <p>{{ form.x11 }}</p>
+                    {% endif %}
+                    {% endfor %}
+-->
+
+
+    <!--     
+             <div class="row">
+                <div class="col-md-4">
+                    <label id="text" for="name">Farmer Name:</label>
+                    <br>
+                    <input type="text" name="x" id="x" value="">
+                </div>
+            </div>
+            <br>
+       
+            {{ form.as_p }}      
+            <div class="row">
+                <div class="col-md-4">
+                    <label id="text" for="name">Date</label>
+                    <br>
+                    <input type="date" id="current_date" required>
+                    <p id="current_date"></p>
+                     {{ form.date }}
+                    <script>
+                        document.getElementById("current_date").innerHTML = Date();
+                    </script>
+                </div>
+            </div>
+            class="col-md-4"
+        -->    
+            
